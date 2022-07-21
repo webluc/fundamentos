@@ -1,0 +1,156 @@
+1. Nova perguntas de negócio.
+	1.1 Recapitulando
+	- empresa: House rocket
+	- modelo de negócio: Compra casas com preço baixo e revendo com o preço mais alto.
+	- qual  o desafio: encontrar bons negócios dentro do portfolio disponivel, ou seja,
+						encontrar casas com preço baixo, em ótima localização e que tenha
+						um ótimo potencial de revenda por um preço mais alto.
+
+
+	1.2 Novas perguntas do CEO:
+		1 . Qual a data do imóvel mais antigo no portfólio
+		2 . Quantos imóveis possuem o número máximo de andares?
+		3 . Criar uma classificação para o imóveis, separando-os em baixo e alto padrão,
+		    de acordo com o preço.
+		    Acima de R$ 540.000 -> Alto Padrão
+		    abaixo de R$ 540.000 -> Baixo Padrão
+		4 . Gostaria de um relatório ordenado pelo preço e contento as seguintes informações?
+			ID ,
+			Data que o imóvel ficou disponível para compra,
+			o número de quartos,
+			o tamanho total to terreno,
+			o preço,
+			a classificação do imóvel( alto e baixo padrão)
+		5 . Gostaria de um mapa indicando onde as casas estão localizadas geograficamente
+
+2. Planejamento de Solução?
+	2.1 Produto Final - O que irei entregar? ( planilha, email, grafico, modelo de  ML)
+		- Email + 2 Anexo:
+			- Email:
+				- Texto : Perguntas e Respostas
+			- Anexo
+				- Um Relatório em .csv
+				- A foto de um mapa em html.
+
+	2.2 Ferramenta - Qual ferramenta eu vou usar ?
+		- Python 
+		- Pycharm
+
+	2.3 Processo - como irei fazer?
+		1 . Qual a data do imóvel mais antigo no portfólio
+			- Ordenar o conjunto de dados pela menor data
+
+		2 . Quantos imóveis possuem o número máximo de andares?
+			- Encontrar os números de andares e determinar o maior
+			- contar quanto imóveis eu tenho por andar.
+
+		3 . Criar uma classificação para o imóveis, separando-os em baixo e alto padrão,
+		    de acordo com o preço.
+		    Acima de R$ 540.000 -> Alto Padrão ( high standard)
+		    abaixo de R$ 540.000 -> Baixo Padrão ( low standard)
+		    - Criar ma nova coluna no conjunto de dados e chamar de "standard"
+		     - para cada linha, eu vou comparar a coluna " price"
+		     	- se "price" for maior que 540.000 , eu vou escrever "high standard" na coluna "standard"
+		     	- se "price" for menor que 540.000 , eu vou escrever "low standard" na coluna "standard"
+
+		4 . Gostaria de um relatório ordenado pelo preço e contento as seguintes informações?
+			ID ,
+			Data que o imóvel ficou disponível para compra,
+			o número de quartos,
+			o tamanho total to terreno,
+			o preço,
+			a classificação do imóvel( alto e baixo padrão)
+			- Selecionar as colunas desejadas/Demandadas
+			- deletar as colunas desejadas/Demandadas
+
+
+		5 . Gostaria de um mapa indicando onde as casas estão localizadas geograficamente
+			- Procurar uma biblioteca em python que armazena uma função que desenha mapa.
+			- Aprender a usar a função que desenha mapa.
+
+3 . Os tipos de variáveis;
+	- caixa armazenadora ( espaço de memória)
+	- Precisa ter um nome e um tipo
+
+	-Boas práticas para o nome
+		- expressar a responsabilidade da variável
+		- seguir estilo " kamel Case" e "Snake case"
+		- "Kamel Case": HousePrice,
+		- "Snake Case": house_price
+
+	- Tipos de variáveis em Python
+		- númerica ( int  e Float) - 10 - 15.4
+		- categoricas ( characters, string) "l" - "luciano"
+		- date ( date, timestamp) - date: Ano-Mes-Dia, timestamp: Ano-Mes-Dia H:M:S
+
+	- Identificar os tipos das variáveis
+		- comando "dtypes"
+
+4 Manipulação de Dados
+	- Criar ( Coluna de variáveis e novas linhas)
+	- Deletar| ( Coluna de variáveis e novas linhas)
+	- Selecionar
+		- 4 formas de selecionar dados:
+			- Forma 01: Direto pelo nome das colunas
+			- Forma 02: Pelos índices das colunas
+			- Forma 03: Pelos índices das linhas e pelos nomes das colunas
+			- Forma 04: Pelos índices bookeanos (True e False)
+
+
+Novas Perguntas do CEO para vocÊ:
+
+1. crie uma nova coluna chamada: "house_age
+	- se o valor da coluna "date" for maior que 2014-01-01 => 'new_house'
+	- se o valor da coluna "date" for menor que 2014-01-01 => 'old_house'
+
+2. Crie uma nova coluna chamada: "dormitory_type"
+	- se o valor da coluna "bedrooms" for igual à 1 => 'studio'
+	- se o valor da coluna "bedrooms" for igual à 2 => 'apartament'
+	- se o valor da coluna "bedrooms" for maior à 2 => 'house'
+
+3. Crie uma nova coluna chamada: "condition_type"
+	- se o valor da coluna "condition" for menor ou igual à 2 => 'bad'
+	- se o valor da coluna "condition" for igual à 3 ou 4 => 'regular'
+	- se o valor da coluna "condition" for igual à 5 => 'good'
+
+4. Modifique o TIPO da coluna "condition" para STRING
+
+5. Delete as colunas: "sqft_living15" e "sqft_lot15"
+
+6. Modifique o TIPO da coluna "yr_build" para DATE
+
+7. Modifique o TIPO da coluna "yr_renovated" para DATE
+
+8. Qual a data mais antiga de construção de um imóvel?
+
+9. Qual a data mais antiga de renovação de um imóvel?
+
+10. Qauntos imóveis tem 2 andares?
+
+11. Qauntos imóveis estão com a condição igual a "regular" ?
+
+12. Quantos imóveis estão com a condição igual a "bad" e possuem "vista para água" ?
+
+13. Quantos imóveis estão com a condição igual a "good" e são "new_house" ?
+
+14. Qual o valor do imóvel mais caro do tipo "studio"?
+
+15. Quantos imóveis do tipo "apartament" foram reformados em 2015 :?
+
+16. Qual o maior número de quartos que um imóvel do tipo "house" possui?
+
+17. Quantos imóveis "new_house" foram reformados no ano de 2014?
+
+18. Selecione as colunas?  "id", "date", "price","floors", "zipcode" pelo método:
+	18.1 Direto pelo nome das colunas.
+	18.2 Pelos Índices
+	10.3 Pelos Índices das linhas e nome das colunas
+	10.4 Índices Booleanos
+
+19. Salve um arquivo .csv com somente as colunas do item 10 ao 17.
+
+20. Modifique a cor dos pontos no mapa de "pink" para "verde-escuro"
+
+
+
+
